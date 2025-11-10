@@ -16,5 +16,5 @@ export default defineConfig({
     },
   },
 
-  base: 'https://github.com/NeyGun/ATPhim.git'
+  base: '/ATPhim/'
 })
