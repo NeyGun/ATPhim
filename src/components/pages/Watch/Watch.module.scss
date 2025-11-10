@@ -1,0 +1,196 @@
+.watch {
+    padding-top: 100px;
+    color: #fff;
+}
+
+.watch-container, .watch-player {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1640px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.player-center {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 40px;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.player-return {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border: 1.5px solid #fff;
+    border-radius: 50%;
+    fill: #fff;
+    padding: 2px;
+    :hover {
+        cursor: pointer;
+    }
+}
+
+.player-ratio {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+
+    /* Đây là "chiêu"
+       56.25% = 9 / 16 (tỉ lệ 16:9)
+       Nếu video 4:3, dùng 75%
+    */
+    padding-top: 56.25%; 
+}
+
+:global(.art-video-player) {
+  position: unset !important;
+}
+
+.watch-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.watch-main {
+    flex: 1;
+    padding: var(--padding-base);
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-base);
+    border-right: 1px solid var(--button-bg);
+}
+
+.watch-info {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    padding-bottom: var(--padding-base);
+    border-bottom: 1px solid var(--button-bg);
+}
+
+.thumb-container {
+    width: 100px;
+}
+
+.info-thumb {
+    position: relative;
+    width: 100%;
+    padding-top: 150%;
+}
+
+.info-thumb img {
+    border-radius: .4rem;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    object-fit: cover;
+}
+
+.info {
+    width: 440px;
+}
+
+.info-name {
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.3rem;
+}
+
+.info-alias-name {
+    font-size: 1rem;
+    line-height: 1rem;
+    padding: 1rem 0 1rem 0;
+    color: var(--primary-text);
+}
+
+.info-detail {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.detail-tags {
+    display: flex;
+    gap: .5rem;
+}
+
+.tag-topic {
+    display: block;
+    padding: .4rem;
+    font-size: .8rem;
+    line-height: .8rem;
+    background-color: var(--button-bg);
+    border-radius: .6rem;
+}
+
+.detail-desc {
+    flex: 1;
+    font-size: .9rem;
+    color: var(--text-base);
+    align-self: start;
+}
+
+.detail-desc a {
+    font-size: .9rem;
+    color: var(--primary-text);
+    fill: var(--primary-text);
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: .15rem;
+}
+
+.detail-desc a svg {
+    width: 0.8rem;
+}
+
+.episodes {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: .5rem;
+}
+
+.episodes-button {
+    display: flex;
+    align-items: center;
+    font-size: .9rem;
+    line-height: .9rem;
+    height: 50px;
+    background-color: var(--button-bg);
+    justify-content: center;
+    border-radius: .4rem;
+    &:hover>svg {
+        fill: var(--primary-text);
+    }
+    &.active {
+        background-color: var(--primary-text);
+        color: var(--primary-button-text);
+    }
+    &.active svg{
+        fill: var(--primary-button-text);
+    }
+}
+
+.episodes-button svg {
+    margin-right: .4rem;
+    fill: #fff;
+    width: .8rem;
+}
+
+
+.watch-side {
+    width: 440px;
+    padding: var(--padding-base);
+}

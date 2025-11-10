@@ -1,0 +1,42 @@
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --footer-bg: #0F111A;
+    --text-base: #aaa;
+    --primary-text: #FFD875;
+    --primary-button-text: #191B24;
+    --bg-color: #191B24;
+    --padding-base: 40px;
+    --button-bg: #FFFFFF10;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+    
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    cursor: pointer;
+    color: var(--primary-text);
+}
