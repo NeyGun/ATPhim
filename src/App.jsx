@@ -6,7 +6,7 @@ function App() {
   
   return (
     <>
-        <Router basename="/ATPhim">
+        <Router>
           <div className="app">
             <Routes>
               {publicRoutes.map((route, index) => {
