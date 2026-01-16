@@ -13,26 +13,27 @@ const cx = classNames.bind(styles);
 function Watch() {
     const { slug, episodeSlug } = useParams();
     const [movieData, setMovieData] = useState(null);
+    const [actorData, setActorData] = useState(null);
     const playerContainRef = useRef();
 
     // ✅ Gọi API khi slug (tức là phim) thay đổi
     useEffect(() => {
-        const url = `https://ophim1.com/v1/api/phim/${slug}`;
-        const options = { method: 'GET', headers: { accept: 'application/json' } };
+        const movieUrl = `https://ophim1.com/v1/api/phim/${slug}`;
+        const moiveOptions = { method: 'GET', headers: { accept: 'application/json' } };
 
-        fetch(url, options)
+        fetch(movieUrl, moiveOptions)
             .then(res => res.json())
             .then(json => setMovieData(json.data))
             .catch(err => console.error(err));
+
+        const actorUrl = movieUrl + '/peoples';
+        const actorOptions = {method: 'GET', headers: {accept: 'application/json'}};
+
+        fetch(actorUrl, actorOptions)
+        .then(res => res.json())
+        .then(json => setActorData(json.data))
+        .catch(err => console.error(err));
     }, [slug]);
-
-    const url = 'https://ophim1.com/v1/api/phim/lam-chong-em-nhe/peoples';
-const options = {method: 'GET', headers: {accept: 'application/json'}};
-
-fetch(url, options)
-  .then(res => res.json())
-  .then(json => console.log(json))
-  .catch(err => console.error(err));
 
     // ✅ Dùng useMemo để tránh tính toán lại các mảng phụ
     const detailCater1 = useMemo(
@@ -184,7 +185,23 @@ fetch(url, options)
                     </div>
                 </div>
 
-                <div className={cx('watch-side')}>{/* Side info here */}</div>
+                <div className={cx('watch-side')}>
+                    <div className={cx('side-rate')}></div>
+                    <div className={cx('side-actors')}>
+                        <div className={cx('actors-header')}>Diễn viên</div>
+                        <div className={cx('actors-container')}>
+                            {actorData && actorData.peoples.map(actor => (
+                                <div className={cx('actors-item')}>
+                                    <div className={cx('actors-img')}>
+                                        <img src={actorData.profile_sizes.original + actor.profile_path}
+                                             alt={actor.name} />
+                                    </div>
+                                    <div className={cx('actors-name')}>{actor.name}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
