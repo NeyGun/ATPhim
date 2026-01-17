@@ -1,0 +1,51 @@
+.slide {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.slide-title {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 180px;
+    padding: 0 1.5rem 0 0.5rem;
+    flex-shrink: 0;
+}
+
+.title-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background-clip: text !important;
+    color: transparent!important;
+}
+
+.title-info {
+    display: flex;
+    align-items: center;
+}
+.title-info > a{
+    font-size: .9rem;
+    fill: #fff;
+}
+
+.title-info > a:hover svg{
+    fill: var(--primary-text);
+}
+
+.title-info > a > svg{
+    margin-left: .3rem;
+    transform: translateY(2px);
+    width: .8rem;
+}
+
+.slide-content {
+    flex: 1;
+    overflow: hidden;
+}
+
+.slide-group {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+}

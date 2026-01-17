@@ -25,7 +25,7 @@ function Watch() {
             .then(res => res.json())
             .then(json => setMovieData(json.data))
             .catch(err => console.error(err));
-
+        
         const actorUrl = movieUrl + '/peoples';
         const actorOptions = {method: 'GET', headers: {accept: 'application/json'}};
 
@@ -191,7 +191,7 @@ function Watch() {
                         <div className={cx('actors-header')}>Diễn viên</div>
                         <div className={cx('actors-container')}>
                             {actorData && actorData.peoples.map(actor => (
-                                <div className={cx('actors-item')}>
+                                <div key={actor.id} className={cx('actors-item')}>
                                     <div className={cx('actors-img')}>
                                         <img src={actorData.profile_sizes.original + actor.profile_path}
                                              alt={actor.name} />
