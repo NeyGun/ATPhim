@@ -1,18 +1,33 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import classNames from 'classnames/bind';
 
 import styles from './MovieSlide.module.scss';
 import MovieCard from "~/components/MovieCard/index.jsx";
 import NextIcon from '~/assests/icon/next-icon.svg?react';
+import ShortNextIcon from '~/assests/icon/short-next-icon.svg?react';
+import PrevIcon from '~/assests/icon/prev-icon.svg?react';
 
 const cx = classNames.bind(styles);
 
 export default function MovieSlide ({ data }) {
+  const [index, setIndex] = useState(0);
+  const [randomColor, setRandomColor] = useState("");
+  const slideRef = useRef(null);
+  const prevButtonRef = useRef(null);
+  const nextButtonRef = useRef(null);
+  useEffect(() => {
+    setRandomColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
+  }, [])
+
+  useEffect(() => {
+    const first = slideRef.current.children[0];
+    const second = slideRef.current.children[1];
+    const step = second.getBoundingClientRect().left - first.getBoundingClientRect().left;
+    // const 
+    slideRef.current.style.transform =
+  `translateX(${- index * step}px)`;
+  }, [index])
   
-   const randomColor = () =>
-  `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-
-
    return (
     <div className={cx("slide")}>
       <div className={cx("slide-title")}>
@@ -20,7 +35,7 @@ export default function MovieSlide ({ data }) {
   background: `linear-gradient(
     235deg,
     rgb(255, 255, 255) 30%,
-    ${randomColor()} 100%
+    ${randomColor} 100%
   )`
 }}
 >{data.seoOnPage.titleHead} mới</div>
@@ -31,11 +46,24 @@ export default function MovieSlide ({ data }) {
           </a>
         </div>
       </div>
-      <div className={cx("slide-content")}>
-        <div className={cx("slide-group")}>
-          {data.items.map(movie => (
-            <MovieCard key={movie._id} movieData={movie} imgDom={data.APP_DOMAIN_CDN_IMAGE}/>
-          ))}
+      <div className={cx("slide-wrapper")}>
+        <div className={cx("slide-nav")}>
+          {index !=0 && 
+          <button type="button" className={cx("slide-nav-prev")} ref={prevButtonRef} onClick={() => {setIndex((prev => (prev-1)))}}>
+            <PrevIcon />
+          </button>}
+          {index != data.params.pagination.totalItemsPerPage - 3 &&
+          <button type="button" className={cx("slide-nav-next")} ref={nextButtonRef} onClick={() => {setIndex((prev => (prev+1)))}}>
+            <ShortNextIcon />
+          </button>
+          }
+        </div>
+        <div className={cx("slide-content")}>
+          <div className={cx("slide-group")} ref={slideRef}>
+            {data.items.map(movie => (
+              <MovieCard key={movie._id} movieData={movie} imgDom={data.APP_DOMAIN_CDN_IMAGE}/>
+            ))}
+          </div>
         </div>
       </div>
     </div>

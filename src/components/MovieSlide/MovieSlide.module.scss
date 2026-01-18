@@ -39,8 +39,14 @@
     width: .8rem;
 }
 
-.slide-content {
+.slide-wrapper {
     flex: 1;
+    position: relative;
+    min-width: 0;
+}
+
+.slide-content {
+    width: 100%;
     overflow: hidden;
 }
 
@@ -48,4 +54,38 @@
     display: flex;
     width: 100%;
     min-width: 0;
+    gap: 15px;
+    transition: 300ms;
+    animation: linear;
+}
+
+.slide-nav > button {
+    position: absolute;
+    box-shadow: 0 0 20px 5px #0003;
+    background-color: #fff;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: none;
+    z-index: 15;
+    :hover {
+        cursor: pointer;
+    }
+}
+
+.slide-nav > button > svg {
+    width: 1.5rem;
+}
+
+.slide-nav-prev{
+    left: -20px;
+    top: calc(50% - 50px);
+}
+
+.slide-nav-next{
+    right: -20px;
+    top: calc(50% - 50px);
 }
