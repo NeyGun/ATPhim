@@ -34,7 +34,7 @@ function Home() {
         <div className={cx("home-container")}>
             <div className={cx("slide-container")}>
                 {test && <MovieSlide data={test}/>}
-                {/* {test1 && <MovieSlide data={test1}/>} */}
+                {test1 && <MovieSlide data={test1}/>}
             </div>
         </div>
     );

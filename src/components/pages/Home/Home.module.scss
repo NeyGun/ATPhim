@@ -8,5 +8,7 @@
     border-radius: 1rem;
     background: linear-gradient(0deg, rgba(40, 43, 58, 0) 20%, rgba(40, 43, 58, 1));
     padding: 2rem;
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.3rem;
 }

@@ -49,15 +49,11 @@
 }
 
 .hover-preview {
+    // position: relative;
     width: 100px;
     background: #141414;
     color: #fff;
     border-radius: 12px;
     box-shadow: 0 20px 40px rgba(0,0,0,.6);
-    padding: 16px;
     z-index: 9999;
-}
-
-.hover-arrow {
-  fill: #141414;
 }

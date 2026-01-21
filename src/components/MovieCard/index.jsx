@@ -9,7 +9,7 @@ const cx = classNames.bind(styles);
 export default function MovieCard({ movieData, imgDom }) {
   return (
     <div className={cx("slide-card")}>
-      <HoverCard.Root openDelay={250} closeDelay={150}>
+      <HoverCard.Root openDelay={250} closeDelay={150} open={true}>
         
         {/* 🎯 CHỈ POSTER LÀ TRIGGER */}
         <HoverCard.Trigger asChild>
@@ -20,7 +20,6 @@ export default function MovieCard({ movieData, imgDom }) {
             <img
               className={cx("slide-img")}
               src={imgDom + "/uploads/movies/" + movieData.poster_url}
-              alt=""
             />
           </a>
         </HoverCard.Trigger>

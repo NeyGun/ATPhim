@@ -1,63 +1,31 @@
-.slide-card {
-    flex: 0 0 calc((100% - 30px) / 3);
-    height: fit-content;
-    min-width: 0;
-}
-
-.slide-poster {
+.hover-container {
     width: 100%;
-    padding-bottom: 56%;
-    height: 0;
-    position: relative;
-    border-radius: .75rem;
-    overflow: hidden;
-    display: block;
-}
-
-.slide-img {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
-.slide-name {
-    padding: 12px 16px;
-    min-width: 0;
-    a {
-        display: block;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+.hover-poster {
+    position: relative;
+    top: 0;
+    bottom: 50%;
+    width: 320px;
+    img {
+        width: 320px;
     }
 }
 
-.name {
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 500;
+.hover-info {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+    background: linear-gradient(
+  to top,
+  rgba(20, 24, 42) 0%,
+  rgba(20, 24, 42) 30%,
+  rgba(20, 24, 42) 60%,
+  rgba(20, 24, 42) 100%
+);
+
 }
 
-.origin-name > a{
-    color: var(--text-base);
-    font-size: .8rem;
-    font-weight: 300;
-}
-
-.origin-name > a:hover{
-    color: var(--text-base);
-}
-
-.hover-preview {
-    width: 100px;
-    background: #141414;
-    color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0,0,0,.6);
-    padding: 16px;
-    z-index: 9999;
-}
-
-.hover-arrow {
-  fill: #141414;
-}
