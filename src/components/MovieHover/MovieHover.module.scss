@@ -1,31 +1,36 @@
 .hover-container {
     width: 100%;
-    position: absolute;
+    overflow: hidden;
+    border-radius: 12px;
+    border-radius: 12px;
 }
 
 .hover-poster {
-    position: relative;
     top: 0;
     bottom: 50%;
-    width: 320px;
+    width: 100%;
+    padding-bottom: 56%;
     img {
-        width: 320px;
+        border-radius: 12px 12px 0 0;
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
     }
 }
 
 .hover-info {
-    position: relative;
-    top: 0;
-    bottom: 0;
+    position: absolute;
+    top: calc(100% - 30px);
     width: 100%;
     z-index: 1;
     background: linear-gradient(
-  to top,
-  rgba(20, 24, 42) 0%,
-  rgba(20, 24, 42) 30%,
-  rgba(20, 24, 42) 60%,
-  rgba(20, 24, 42) 100%
-);
+    to top,
+    rgba(47, 51, 70, 1) 0%,
+    rgba(47, 51, 70, 1) 85%,
+    rgba(69, 71, 73, 0.5) 100%
+  );
 
 }
 

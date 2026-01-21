@@ -12,7 +12,7 @@ export default function MovieHover({ movieData, imgDom }) {
   
   return (
     <div className={cx("hover-container")}>
-      {/* <div className={cx("hover")}> */}
+      <div className={cx("hover")}>
         <div className={cx("hover-poster")}>
           <img src={imgDom + "/uploads/movies/" + movieData.poster_url} />
         </div>
@@ -36,7 +36,7 @@ export default function MovieHover({ movieData, imgDom }) {
           <div></div>
           <div></div>
         </div>
-      {/* </div> */}
+      </div>
     </div>
   );
 }

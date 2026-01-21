@@ -85,7 +85,7 @@ function Watch() {
                         <ReturnIcon />
                     </Link>
                     <div className={cx('player-name')}>
-                        Xử lý focus blur input Bỏ call API lấy ảnh thanh search https://img.ophim.live/uploads/movies/ + path CSS control Thêm webkit giới hạn cho desc
+                        Xử lý play pause bằng dấu cách, Xử lý focus blur input Bỏ call API lấy ảnh thanh search https://img.ophim.live/uploads/movies/ + path CSS control Thêm webkit giới hạn cho desc
                         Xem phim {movieData.item.name}
                     </div>
                 </div>

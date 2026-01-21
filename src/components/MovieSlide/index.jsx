@@ -11,19 +11,19 @@ const cx = classNames.bind(styles);
 
 export default function MovieSlide ({ data }) {
   const [index, setIndex] = useState(0);
+  const [step, setStep] = useState(0);
   const [randomColor, setRandomColor] = useState("");
   const slideRef = useRef(null);
   const prevButtonRef = useRef(null);
   const nextButtonRef = useRef(null);
   useEffect(() => {
     setRandomColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
+    var first = slideRef.current.children[0];
+    var second = slideRef.current.children[1];
+    setStep(second.getBoundingClientRect().left - first.getBoundingClientRect().left);
   }, [])
 
   useEffect(() => {
-    const first = slideRef.current.children[0];
-    const second = slideRef.current.children[1];
-    const step = second.getBoundingClientRect().left - first.getBoundingClientRect().left;
-    // const 
     slideRef.current.style.transform =
   `translateX(${- index * step}px)`;
   }, [index])
@@ -61,7 +61,7 @@ export default function MovieSlide ({ data }) {
         <div className={cx("slide-content")}>
           <div className={cx("slide-group")} ref={slideRef}>
             {data.items.map(movie => (
-              <MovieCard key={movie._id} movieData={movie} imgDom={data.APP_DOMAIN_CDN_IMAGE}/>
+              <MovieCard key={movie._id} movieData={movie} width={step} imgDom={data.APP_DOMAIN_CDN_IMAGE}/>
             ))}
           </div>
         </div>

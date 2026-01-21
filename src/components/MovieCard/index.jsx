@@ -6,7 +6,9 @@ import styles from "./MovieCard.module.scss";
 
 const cx = classNames.bind(styles);
 
-export default function MovieCard({ movieData, imgDom }) {
+export default function MovieCard({ movieData, width, imgDom }) {
+  console.log(width);
+  
   return (
     <div className={cx("slide-card")}>
       <HoverCard.Root openDelay={250} closeDelay={150} open={true}>
@@ -27,10 +29,11 @@ export default function MovieCard({ movieData, imgDom }) {
         {/* 🚀 PREVIEW RENDER RA NGOÀI SLIDER */}
         <HoverCard.Portal>
           <HoverCard.Content
-            side="left"
-            align="start"
-            sideOffset={-100}
+            side="center"
+            align="center"
+            sideOffset={0}
             className={cx("hover-preview")}
+            style={{width: `${width}px`}}
           >
             <MovieHover movieData={movieData} imgDom={imgDom} />
           </HoverCard.Content>
