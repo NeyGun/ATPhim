@@ -75,7 +75,7 @@ function Watch() {
     }
 
     if (!movieData) return <div className={cx('loading')}>Đang tải phim...</div>;
-
+    
     return (
         <div className={cx('watch')}>
             {/* ================== PLAYER ================== */}
@@ -85,7 +85,7 @@ function Watch() {
                         <ReturnIcon />
                     </Link>
                     <div className={cx('player-name')}>
-                        Xử lý play pause bằng dấu cách, Xử lý focus blur input Bỏ call API lấy ảnh thanh search https://img.ophim.live/uploads/movies/ + path CSS control Thêm webkit giới hạn cho desc
+                        Thêm button imdb Xử lý play pause bằng dấu cách, Xử lý focus blur input Bỏ call API lấy ảnh thanh search https://img.ophim.live/uploads/movies/ + path CSS control Thêm webkit giới hạn cho desc
                         Xem phim {movieData.item.name}
                     </div>
                 </div>

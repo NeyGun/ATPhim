@@ -11,7 +11,7 @@ export default function MovieCard({ movieData, width, imgDom }) {
   
   return (
     <div className={cx("slide-card")}>
-      <HoverCard.Root openDelay={250} closeDelay={150} open={true}>
+      <HoverCard.Root openDelay={250} closeDelay={150}>
         
         {/* 🎯 CHỈ POSTER LÀ TRIGGER */}
         <HoverCard.Trigger asChild>
@@ -30,10 +30,11 @@ export default function MovieCard({ movieData, width, imgDom }) {
         <HoverCard.Portal>
           <HoverCard.Content
             side="center"
-            align="center"
-            sideOffset={0}
+            align="top"
+            sideOffset={-35}
+            alignOffset={-50}
             className={cx("hover-preview")}
-            style={{width: `${width}px`}}
+            style={{width: `${width}px`, height: `${width}px`}}
           >
             <MovieHover movieData={movieData} imgDom={imgDom} />
           </HoverCard.Content>

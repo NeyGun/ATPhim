@@ -19,22 +19,22 @@ function Home() {
     }, [])
 
 
-    // const [test1, setTest1] = useState(null);
-    // useEffect(() => {
-    //     const url = 'https://ophim1.com/v1/api/quoc-gia/nhat-ban';
-    //     const options = {method: 'GET', headers: {accept: 'application/json'}};
+    const [test1, setTest1] = useState(null);
+    useEffect(() => {
+        const url = 'https://ophim1.com/v1/api/quoc-gia/nhat-ban';
+        const options = {method: 'GET', headers: {accept: 'application/json'}};
 
-    //     fetch(url, options)
-    //     .then(res => res.json())
-    //     .then(json => setTest1(json.data))
-    //     .catch(err => console.error(err));
-    // }, [])
+        fetch(url, options)
+        .then(res => res.json())
+        .then(json => setTest1(json.data))
+        .catch(err => console.error(err));
+    }, [])
   
     return (
         <div className={cx("home-container")}>
             <div className={cx("slide-container")}>
                 {test && <MovieSlide data={test}/>}
-                {/* {test1 && <MovieSlide data={test1}/>} */}
+                {test1 && <MovieSlide data={test1}/>}
             </div>
         </div>
     );

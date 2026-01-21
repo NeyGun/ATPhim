@@ -54,4 +54,14 @@
     border-radius: 12px;
     box-shadow: 0 20px 40px rgba(0,0,0,.6);
     z-index: 9999;
+    animation: zoom-in-zoom-out 0.25s ease;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    scale: 80%;
+  }
+  100% {
+    scale: 100%;
+  }
 }

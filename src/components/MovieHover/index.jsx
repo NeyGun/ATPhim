@@ -16,25 +16,42 @@ export default function MovieHover({ movieData, imgDom }) {
         <div className={cx("hover-poster")}>
           <img src={imgDom + "/uploads/movies/" + movieData.poster_url} />
         </div>
-        <div className={cx("hover-info")}>
-          <div className={cx("hover-name")} >{movieData.name}</div>
-          <div className={cx("hover-origin-name")}>{movieData.origin_name}</div>
-          <div className={cx("hover-control")}>
-            <button className={cx("control-play")}>
-              <PlayIcon />
-              Xem ngay
-            </button>
-            <button className={cx("control-like")}>
-              <HeartIcon />
-              Thích
-            </button>
-            <button className={cx("control-detail")}>
-              <InfoIcon />
-              Chi tiết
-            </button>
+        <div className={cx("info-container")}>
+          <div className={cx("hover-info")}>
+            <div className={cx("hover-name")} >{movieData.name}</div>
+            <div className={cx("hover-origin-name")}>{movieData.origin_name}</div>
+            <div className={cx("hover-control")}>
+              <a href={`/watch/${movieData.slug}`}>
+                <button className={cx("control-play")}>
+                  <PlayIcon />
+                  Xem ngay
+                </button>
+              </a>
+              <a>
+                <button>
+                  <HeartIcon />
+                  Thích
+                </button>
+              </a>
+              <a href={`/movies/${movieData.slug}`}>
+                <button>
+                  <InfoIcon />
+                  Chi tiết
+                </button>
+              </a>
+            </div>
+            <div className={cx("other-info")}>
+              <button className={cx("imdb-info")}>IMDb <span>{movieData.imdb.vote_count == 0 ? "No rate" : movieData.imdb.vote_average}</span></button>
+              <button>{movieData.year}</button>
+              <button>{movieData.type == "hoathinh" && "Hoạt hình" || movieData.type == "series" && "Phim bộ" || movieData.type == "single" && "Phim lẻ" || movieData.type == "tvshow" && "Truyền hình" || movieData.type}</button>
+              <button>{movieData.episode_current}</button>
+            </div>
+            <div className={cx("category-info")}>
+                {movieData.category.map(item => (
+                  <span key={item.id} className={cx("category-item")}>{item.name}</span>
+                ))}
+            </div>
           </div>
-          <div></div>
-          <div></div>
         </div>
       </div>
     </div>
