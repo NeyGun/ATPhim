@@ -6,7 +6,8 @@
 }
 
 .header-wrapper.fixed {
-    background-color: var(--footer-bg);
+    // background-color: var(--footer-bg);
+    background-color: transparent;
     position: fixed;
     z-index: 5;
 }

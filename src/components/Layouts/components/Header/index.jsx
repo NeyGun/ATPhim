@@ -12,7 +12,7 @@ function Header() {
                     <img src="/logo.svg" alt="ATPhim" />
                 </a>
                 <Search />
-                <div style={{ backgroundColor: 'blue', width: '882px', height: '40px' }}>
+                <div style={{ width: '882px', height: '40px' }}>
 
                 </div>
             </div>

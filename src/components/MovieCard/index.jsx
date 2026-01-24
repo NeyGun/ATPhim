@@ -7,7 +7,6 @@ import styles from "./MovieCard.module.scss";
 const cx = classNames.bind(styles);
 
 export default function MovieCard({ movieData, width, imgDom }) {
-  console.log(width);
   
   return (
     <div className={cx("slide-card")}>
@@ -44,7 +43,7 @@ export default function MovieCard({ movieData, width, imgDom }) {
       {/* ❌ KHÔNG nằm trong trigger */}
       <div className={cx("slide-name")}>
         <div className={cx("name")}>
-          <a href={`/phim/${movieData.slug}`}>{movieData.name}</a>
+          <a href={`/phim/${movieData.slug}`}>Xử lý scroll cho slide{movieData.name}</a>
         </div>
         <div className={cx("origin-name")}>
           <a href={`/phim/${movieData.slug}`}>
@@ -55,3 +54,5 @@ export default function MovieCard({ movieData, width, imgDom }) {
     </div>
   );
 }
+
+

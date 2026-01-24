@@ -8,7 +8,6 @@ import InfoIcon from '~/assests/icon/info-icon.svg?react';
 const cx = classNames.bind(styles);
 
 export default function MovieHover({ movieData, imgDom }) {
-  console.log(movieData);
   
   return (
     <div className={cx("hover-container")}>
