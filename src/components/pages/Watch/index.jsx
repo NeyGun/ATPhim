@@ -129,25 +129,25 @@ function Watch() {
                                 <div className={cx('info-detail')}>
                                     <div className={cx('detail-tags')}>
                                         {detailCater1.map((item, index) => (
-                                            <a
+                                            <Link
                                                 key={index}
                                                 className={cx('tag-topic')}
-                                                href={item.slug}
+                                                to={item.slug}
                                             >
                                                 {item.name}
-                                            </a>
+                                            </Link>
                                         ))}
                                     </div>
 
                                     <div className={cx('detail-tags')}>
                                         {detailCater2.map((item, index) => (
-                                            <a
+                                            <Link
                                                 key={index}
                                                 className={cx('tag-topic')}
-                                                href={item.slug}
+                                                to={item.slug}
                                             >
                                                 {item.name}
-                                            </a>
+                                            </Link>
                                         ))}
                                     </div>
                                 </div>

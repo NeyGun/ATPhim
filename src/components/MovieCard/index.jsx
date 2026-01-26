@@ -1,5 +1,6 @@
 import * as HoverCard from "@radix-ui/react-hover-card";
 import classNames from "classnames/bind";
+import { Link } from "react-router-dom";
 
 import MovieHover from "~/components/MovieHover/index.jsx"
 import styles from "./MovieCard.module.scss";
@@ -14,15 +15,15 @@ export default function MovieCard({ movieData, width, imgDom }) {
         
         {/* 🎯 CHỈ POSTER LÀ TRIGGER */}
         <HoverCard.Trigger asChild>
-          <a
+          <Link
             className={cx("slide-poster")}
-            href={`/phim/${movieData.slug}`}
+            to={`/phim/${movieData.slug}`}
           >
             <img
               className={cx("slide-img")}
               src={imgDom + "/uploads/movies/" + movieData.poster_url}
             />
-          </a>
+          </Link>
         </HoverCard.Trigger>
 
         {/* 🚀 PREVIEW RENDER RA NGOÀI SLIDER */}
@@ -43,12 +44,12 @@ export default function MovieCard({ movieData, width, imgDom }) {
       {/* ❌ KHÔNG nằm trong trigger */}
       <div className={cx("slide-name")}>
         <div className={cx("name")}>
-          <a href={`/phim/${movieData.slug}`}>Xử lý scroll cho slide{movieData.name}</a>
+          <Link to={`/phim/${movieData.slug}`}>Xử lý scroll cho slide{movieData.name}</Link>
         </div>
         <div className={cx("origin-name")}>
-          <a href={`/phim/${movieData.slug}`}>
+          <Link to={`/phim/${movieData.slug}`}>
             {movieData.origin_name}
-          </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import classNames from "classnames/bind";
+import { Link } from "react-router-dom";
 
 import styles from "./MovieHover.module.scss";
 import PlayIcon from '~/assests/icon/play-icon.svg?react';
@@ -20,24 +21,24 @@ export default function MovieHover({ movieData, imgDom }) {
             <div className={cx("hover-name")} >{movieData.name}</div>
             <div className={cx("hover-origin-name")}>{movieData.origin_name}</div>
             <div className={cx("hover-control")}>
-              <a href={`/watch/${movieData.slug}`}>
+              <Link to={`/watch/${movieData.slug}`}>
                 <button className={cx("control-play")}>
                   <PlayIcon />
                   Xem ngay
                 </button>
-              </a>
+              </Link>
               <a>
                 <button>
                   <HeartIcon />
                   Thích
                 </button>
               </a>
-              <a href={`/movies/${movieData.slug}`}>
+              <Link to={`/movies/${movieData.slug}`}>
                 <button>
                   <InfoIcon />
                   Chi tiết
                 </button>
-              </a>
+              </Link>
             </div>
             <div className={cx("other-info")}>
               <button className={cx("imdb-info")}>IMDb <span>{movieData.imdb.vote_count == 0 ? "No rate" : movieData.imdb.vote_average}</span></button>

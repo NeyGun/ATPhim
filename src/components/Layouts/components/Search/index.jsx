@@ -4,6 +4,7 @@ import styles from './Search.module.scss'
 import SearchIcon from '~/assests/icon/search-icon.svg?react'
 import RemoveIcon from '~/assests/icon/remove-icon.svg?react'
 import LoadingIcon from '~/assests/icon/loading-icon.svg?react'
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -37,7 +38,6 @@ function Search() {
 
                     const items = searchJson.data.items || [];
                     const limitedItems = items.slice(0, 5); // Lấy 5 phim đầu
-                    console.log(limitedItems);
                     
                     if (limitedItems.length === 0) {
                         setSearchList([]);
@@ -133,7 +133,7 @@ function Search() {
                             <div className={cx('list-result')}>
                                 {searchKey.length > 0 && (
                                     searchList.map((item) => (
-                                        <a className={cx('item')} key={item._id} href={`/watch/${item.slug}`}>
+                                        <Link className={cx('item')} key={item._id} to={`/watch/${item.slug}`}>
                                             <div className={cx('item-poster-container')}>
                                                 <div className={cx('item-poster')}>
                                                     <img onLoad={() => setImgLoading(false)} src={item.posterHandlePath} alt="poster" />
@@ -148,7 +148,7 @@ function Search() {
                                                     <span className={cx('item-tag-span')}>{item.episode_current || item.time}</span>
                                                 </div>
                                             </div>
-                                        </a>
+                                        </Link>
                                         ))
                                     )
                                 }
@@ -156,7 +156,7 @@ function Search() {
                         </div>
                         )
                     }
-                        {searchKey.length > 0 && searchList.length > 0 && <a className={cx('view-all')} href="/tim-kiem?q=a">Toàn bộ kết quả</a>}
+                        {searchKey.length > 0 && searchList.length > 0 && <Link className={cx('view-all')} to="/tim-kiem?q=a">Toàn bộ kết quả</Link>}
                         </div>
                     )
                         

@@ -7,6 +7,7 @@ import InfoIcon from '~/assests/icon/info-icon.svg?react';
 import PlayIcon from '~/assests/icon/play-icon.svg?react';
 import ShortNextIcon from '~/assests/icon/short-next-icon.svg?react';
 import styles from './Home.module.scss';
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 const TOPIC = [
@@ -68,13 +69,13 @@ function Home() {
         topSlideRef.current.style.transform = `translateX(${- index * width}px)`;
     }, [index])
 
-    const url = 'https://ophim1.com/v1/api/danh-sach/phim-moi';
-const options = {method: 'GET', headers: {accept: 'application/json'}};
+//     const url = 'https://ophim1.com/v1/api/danh-sach/phim-moi';
+// const options = {method: 'GET', headers: {accept: 'application/json'}};
 
-fetch(url, options)
-  .then(res => res.json())
-  .then(json => console.log(json))
-  .catch(err => console.error(err));
+// fetch(url, options)
+//   .then(res => res.json())
+//   .then(json => console.log(json))
+//   .catch(err => console.error(err));
     return (
         <div>
             <div className={cx("banner")}>
@@ -116,21 +117,21 @@ fetch(url, options)
                                     </div>
                                     <div className={cx("banner-category")}>
                                         {item.category.map(item => (
-                                            <a key={item.id} href={`/the-loai/${item.slug}`}>{item.name}</a>
+                                            <Link key={item.id} to={`/the-loai/${item.slug}`}>{item.name}</Link>
                                         ))}
                                     </div>
                                 </div>
                                 <div className={cx("banner-touch")}>
-                                    <a href={`/watch/${item.slug}`} className={cx("touch-play")}>
+                                    <Link to={`/watch/${item.slug}`} className={cx("touch-play")}>
                                         <PlayIcon/>
-                                    </a>
+                                    </Link>
                                     <div className={cx("touch-group")}>
                                         <a className={cx("touch-item")}>
                                             <HeartIcon />
                                         </a>
-                                        <a href={`/movies/${item.slug}`} className={cx("touch-item")}>
+                                        <Link to={`/movies/${item.slug}`} className={cx("touch-item")}>
                                             <InfoIcon />
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -171,7 +172,7 @@ fetch(url, options)
                     <div className={cx("topic-header")}>Bạn đang quan tâm gì?</div>
                     <div className={cx("topic-content")}>
                         {TOPIC.slice(0, 6).map(item => (
-                            <a key={item.id} href={`/chu-de/${item.slug}`} className={cx("topic-item")}>
+                            <Link key={item.id} to={`/chu-de/${item.slug}`} className={cx("topic-item")}>
                                 <div className={cx("topic-wrapper")}>
                                     <div className={cx("topic-name")}>{item.name}</div>
                                     <div className={cx("topic-info")}>
@@ -179,11 +180,11 @@ fetch(url, options)
                                         <ShortNextIcon />
                                     </div>
                                 </div>
-                            </a>
+                            </Link>
                         ))}
-                        <a href="/chu-de" className={cx("topic-item")} style={{ textAlign: "center", fontSize: "1.1rem" }}>
+                        <Link to="/chu-de" className={cx("topic-item")} style={{ textAlign: "center", fontSize: "1.1rem" }}>
                             +8 chủ đề
-                        </a>
+                        </Link>
                     </div>
                 </div>
                 <div className={cx("slide-container")}>

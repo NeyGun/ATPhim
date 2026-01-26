@@ -6,6 +6,7 @@ import MovieCard from "~/components/MovieCard/index.jsx";
 import NextIcon from '~/assests/icon/next-icon.svg?react';
 import ShortNextIcon from '~/assests/icon/short-next-icon.svg?react';
 import PrevIcon from '~/assests/icon/prev-icon.svg?react';
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
@@ -39,10 +40,10 @@ export default function MovieSlide ({ data }) {
 }}
 >{data.seoOnPage.titleHead} mới</div>
         <div className={cx("title-info")}>
-          <a href={data.seoOnPage.og_url}>
+          <Link to={data.seoOnPage.og_url}>
             <span>Xem toàn bộ</span>
             <NextIcon />
-          </a>
+          </Link>
         </div>
       </div>
       <div className={cx("slide-wrapper")}>
