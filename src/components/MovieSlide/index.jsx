@@ -24,8 +24,7 @@ export default function MovieSlide ({ data }) {
   }, [])
 
   useEffect(() => {
-    slideRef.current.style.transform =
-  `translateX(${- index * step}px)`;
+    slideRef.current.style.transform = `translateX(${- index * step}px)`;
   }, [index])
   
    return (
