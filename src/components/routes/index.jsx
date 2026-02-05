@@ -1,11 +1,16 @@
 import Home from "../pages/Home";
 import Watch from "../pages/Watch";
 import { HeaderOnly } from "../Layouts";
+import Search from "../pages/Search";
 
 const publicRoutes = [
     {
         path: "/",
         component: Home,
+    },
+    {
+        path: "/search",
+        component: Search,
     },
     {
         path: "/watch/:slug",
