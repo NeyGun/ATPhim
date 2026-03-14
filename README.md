@@ -25,6 +25,10 @@ Mục tiêu của mình khi làm project này là:
 # Lưu ý: hiện tại web vẫn chưa hoàn thiện responsive, nếu được bạn hãy xem trên các thiết bị màn hình lớn để có được trải nghiệm tốt nhất nhé!!!
 ---
 
+## 🚀 Live Demo
+
+https://neygun.github.io/ATPhim/
+
 # 🚀 Công nghệ sử dụng
 
 Project được xây dựng bằng các công nghệ sau:
@@ -63,6 +67,15 @@ Clone project:
 
 ```bash
 git clone https://github.com/NeyGun/ATPhim.git
+cd ATPhim
+```
+
+Cài NodeJS nếu máy bạn chưa có (https://nodejs.org/):
+
+Kiểm tra sau khi cài xong
+```bash
+node -v
+npm -v
 ```
 
 Cài đặt dependencies:
