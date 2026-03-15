@@ -1,7 +1,7 @@
 # 🎬 ATPhim
 
 ATPhim là một website xem phim được xây dựng bằng **React**.
-Đây là **project frontend đầu tiên** của mình trong quá trình học lập trình web.
+Đây là **project React đầu tiên** của mình trong quá trình học lập trình.
 
 Project vẫn **chưa hoàn thiện** và chắc chắn còn nhiều thiếu sót.
 Mục tiêu của mình khi làm project này là:
@@ -127,7 +127,7 @@ Một số phần dự định sẽ bổ sung trong tương lai:
 
 # 🙌 Lời kết
 
-Đây là **project đầu tiên của mình**, nên chắc chắn còn nhiều lỗi và thiếu sót.
+Đây là **project React đầu tiên của mình**, nên chắc chắn còn nhiều lỗi và thiếu sót.
 Mình rất vui nếu nhận được góp ý để cải thiện project tốt hơn.
 
 Cảm ơn bạn đã ghé qua repository này! ⭐
