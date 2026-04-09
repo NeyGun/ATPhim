@@ -1,10 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import classNames from 'classnames/bind';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 
 import styles from './MovieSlide.module.scss';
@@ -57,8 +53,20 @@ export default function MovieSlide ({ data }) {
           {/* } */}
         </div>
         <Swiper
-          slidesPerView={3}
-          spaceBetween={30}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+              spaceBetween: 10
+            },
+            320: {
+              slidesPerView: 2,
+              spaceBetween: 20
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 30
+            }
+          }}
           navigation={{
             nextEl: prevButtonRef.current,
             prevEl: nextButtonRef.current

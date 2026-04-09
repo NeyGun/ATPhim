@@ -1,0 +1,43 @@
+.col {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    font-size: .9rem;
+}
+
+.col-item {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    height: 50px;
+}
+
+.col-pos {
+    color: var(--text-base);
+    font-size: 1.1rem;
+}
+
+.col-minus {
+    fill: var(--text-base);
+    width: 1.3rem;
+}
+
+.col-img {
+    width: 25px;
+    height: 36px;
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 4px;
+    }
+}
+
+.more {
+    margin-top: 1rem;
+    color: var(--text-base);
+    font-size: .8rem;
+}
+
+.more:hover {
+    color: var(--primary-text);
+}

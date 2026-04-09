@@ -5,12 +5,43 @@ import Search from "../Search";
 import styles from "./Header.module.scss";
 import UserIcon from "~/assests/icon/user-icon.svg?react";
 import SearchIcon from "~/assests/icon/search-icon.svg?react";
+import { useState, useEffect } from "react";
 
 const cx = classNames.bind(styles);
 
 function Header() {
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    // Chỉ có hiệu ứng khi màn hình lớn hơn 640px
+    const media = window.matchMedia("(min-width: 640px)"); // Giống media query trong css trả về object có true or false và eventlistener khi kích thước màn hình thay đổi
+
+    const handleScroll = () => {
+      setActive(window.scrollY > 50);
+    };
+
+    const handleMediaChange = (e) => {
+      if (e.matches) {
+        // >= 640px
+        window.addEventListener("scroll", handleScroll);
+      } else {
+        // < 640px
+        window.removeEventListener("scroll", handleScroll);
+        setActive(false);
+      }
+    };
+
+    handleMediaChange(media); // init
+    media.addEventListener("change", handleMediaChange);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      media.removeEventListener("change", handleMediaChange);
+    };
+  }, []);
+
   return (
-    <div className={cx("header-wrapper","fixed")}>
+    <div className={cx("header-wrapper", `${active ? "fixed" : ""}`)}>
       <div className={cx("header")}>
         <input type="checkbox" id="menu-toggle" className={cx("menu-toggle")} />
         <input type="checkbox" id="search-toggle" className={cx("search-toggle")} />

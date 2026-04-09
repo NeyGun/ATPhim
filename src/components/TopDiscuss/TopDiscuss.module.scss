@@ -1,0 +1,44 @@
+.container {
+    border: 1px solid #fff2;
+    border-radius: 30px;
+}
+
+.title {
+    display: flex;
+    gap: .5rem;
+    margin-bottom: 1.2rem;
+    svg {
+        width: 20px;
+        fill: var(--primary-text);
+    }
+    span {
+        text-transform: uppercase;
+        color: #fff;
+        font-weight: 600;
+    }
+}
+
+.comment {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #fff2;
+}
+
+.bottom {
+    display: flex;
+}
+
+.col-wrapper {
+    flex: 1;
+    padding: 1.5rem 2rem;
+}
+
+.col-center {
+    border-right: 1px solid #fff2;
+    border-left: 1px solid #fff2;
+}
+
+@media (max-width: 1280px) {
+    .container {
+        display: none;
+    }
+}

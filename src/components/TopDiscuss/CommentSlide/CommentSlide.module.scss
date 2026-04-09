@@ -1,0 +1,138 @@
+.container {
+    position: relative;
+}
+
+.cmt-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.cmt-item:hover {
+    .cmt-poster {
+        opacity: .7;
+    }
+    .user-avt {
+        border-color: #fff;
+    }
+}
+
+.cmt-poster {
+    position: relative;
+    width: 100%;
+    padding-bottom: 80%;
+    opacity: .5;
+    -webkit-mask-image: linear-gradient(180deg, black, transparent 80%);
+    mask-image: linear-gradient(180deg, black, transparent 80%);
+    img {
+        position: absolute;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        filter: blur(5px);
+    }
+}
+
+.cmt-thumb {
+    z-index: 2;
+    position: absolute;
+    right: 1.2rem;
+    top: 1.2rem;
+    img {
+        border-radius: 10px;
+        height: 75px;
+        width: 50px;
+        object-fit: cover;
+    }
+}
+
+.user {
+    position: absolute;
+    top: 1.2rem;
+    left: 1.2rem;
+    right: 1.2rem;
+    bottom: 1.2rem;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.user-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+.user-avt {
+    width: 45px;
+    height: 45px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    img {
+        border-radius: 50%;
+        width: 100%;
+        width: 100%;
+    }
+}
+
+.user-name {
+    color: #fff;
+    font-size: .9rem;
+}
+
+.user-cmt {
+    color: var(--text-base);
+    font-size: .8rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.cmt-action {
+    display: flex;
+    gap: .8rem;
+}
+
+.act {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    color: var(--text-base);
+    font-size: .8rem;
+    svg {
+        fill: var(--text-base);
+        width: .8rem;
+        height: .8rem;
+    }
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid var(--text-base);
+    background-color: var(--primary-button-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    svg {
+        width: 20px;
+        height: 20px;
+        fill: #fff;
+    }
+}
+
+.prev {
+    left: -2rem;
+    transform: translate(-50%, -50%);
+}
+
+.next {
+    right: -2rem;
+    transform: translate(50%, -50%);
+}

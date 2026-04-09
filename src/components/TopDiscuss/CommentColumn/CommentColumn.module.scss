@@ -1,0 +1,53 @@
+.cmt-item {
+    background-color: var(--footer-bg);
+    border-radius: 6px;
+    padding: .6rem .8rem;
+    display: flex;
+    gap: .7rem;
+    align-items: center;
+}
+
+.cmt-avt {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.cmt-user {
+    display: flex;
+    font-size: .8rem;
+    color: var(--text-base);
+    gap: .3rem;
+}
+
+.user-name {
+    color: #fff;
+}
+
+.user-cmt {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.movie {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    font-size: .8rem;
+    color: var(--text-base)!important;
+    svg {
+        fill: var(--primary-text)!important;
+        width: .5rem;
+        height: .5rem;
+    }
+}
+

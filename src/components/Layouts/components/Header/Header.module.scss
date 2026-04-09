@@ -1,18 +1,17 @@
 .header-wrapper {
-    position: relative;
+    position: fixed;
     top: 0;
     right: 0;
     left: 0;
-}
-
-.header-wrapper.fixed {
-    // background-color: var(--footer-bg);
-    background-color: transparent;
-    position: fixed;
     z-index: 5;
 }
 
-.header-wrapper.fixed .header{
+.header-wrapper.fixed {
+    background-color: var(--footer-bg);
+    // background-color: transparent;
+}
+
+.header-wrapper .header{
     position: unset;
 }
 
@@ -184,6 +183,7 @@
     left: 10px;
     background: #3c4984;
     padding: 20px;
+    margin-top: 10px;
   }
 
   .menu-toggle:checked ~ .right-group {
@@ -206,4 +206,10 @@
         display: flex;
         margin-right: 20px;
     }
+}
+
+@media (max-width: 640px) {
+  .header-wrapper {
+    background-color: var(--footer-bg);
+  }
 }

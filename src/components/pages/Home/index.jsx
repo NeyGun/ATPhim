@@ -6,6 +6,7 @@ import ShortNextIcon from '~/assests/icon/short-next-icon.svg?react';
 import styles from './Home.module.scss';
 import MovieSlide from "~/components/MovieSlide/index.jsx"
 import TopSlide from "~/components/TopSlide/index.jsx"
+import TopDiscuss from "~/components/TopDiscuss/index.jsx";
 
 const cx = classNames.bind(styles);
 const TOPIC = [
@@ -51,7 +52,7 @@ function Home() {
 
     const [test1, setTest1] = useState(null);
     useEffect(() => {
-        const url = 'https://ophim1.com/v1/api/quoc-gia/nhat-ban?limit=12';
+        const url = 'https://ophim1.com/v1/api/quoc-gia/au-my?limit=12';
         const options = {method: 'GET', headers: {accept: 'application/json'}};
 
         fetch(url, options)
@@ -60,6 +61,16 @@ function Home() {
         .catch(err => console.error(err));
     }, [])
     
+    const [test2, setTest2] = useState(null);
+    useEffect(() => {
+        const url = 'https://ophim1.com/v1/api/quoc-gia/trung-quoc?limit=12';
+        const options = {method: 'GET', headers: {accept: 'application/json'}};
+
+        fetch(url, options)
+        .then(res => res.json())
+        .then(json => setTest2(json.data))
+        .catch(err => console.error(err));
+    }, [])
 
     return (
         <div>
@@ -87,8 +98,9 @@ function Home() {
                 <div className={cx("slide-container")}>
                     {test && <MovieSlide data={test}/>}
                     {test1 && <MovieSlide data={test1}/>}
-                    {test1 && <MovieSlide data={test1}/>}
+                    {test2 && <MovieSlide data={test2}/>}
                 </div>
+                <TopDiscuss />
             </div>
         </div>
     );

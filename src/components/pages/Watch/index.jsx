@@ -34,7 +34,7 @@ function Watch() {
         .then(json => setActorData(json.data))
         .catch(err => console.error(err));
     }, [slug]);
-
+    
     // ✅ Dùng useMemo để tránh tính toán lại các mảng phụ
     const detailCater1 = useMemo(
         () => movieData?.breadCrumb.slice(0, 2) || [],
@@ -171,12 +171,12 @@ function Watch() {
                                     episodeSlug === item.slug || (!episodeSlug && item.slug === allEpisodes[0].slug);
                                 return (
                                     <Link
-                                    key={item.slug}
-                                    to={`/watch/${slug}/${item.slug}`}
-                                    className={cx('episodes-button', { active: isActive })}
-                                    >
-                                    <PlayIcon />
-                                    Tập {item.name}
+                                        key={item.slug}
+                                        to={`/watch/${slug}/${item.slug}`}
+                                        className={cx('episodes-button', { active: isActive })}
+                                        >
+                                        <PlayIcon />
+                                        Tập {item.name}
                                     </Link>
                                 );
                             })}
@@ -191,7 +191,7 @@ function Watch() {
                         <div className={cx('actors-header')}>Diễn viên</div>
                         <div className={cx('actors-container')}>
                             {actorData && actorData.peoples.map(actor => (
-                                <div key={actor.id} className={cx('actors-item')}>
+                                <div key={actor.tmdb_people_id} className={cx('actors-item')}>
                                     <div className={cx('actors-img')}>
                                         <img src={actorData.profile_sizes.original + actor.profile_path}
                                              alt={actor.name} />
