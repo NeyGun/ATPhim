@@ -7,13 +7,14 @@ import styles from "./MovieCard.module.scss";
 
 const cx = classNames.bind(styles);
 
-export default function MovieCard({ movieData, imgDom }) {
+export default function MovieCard({ movieData, imgDom, type, rank }) {
+  console.log(movieData);
   
   return (
-    <div className={cx("slide-card")}>
+    <div className={cx("slide-card", type)}>
       <HoverCard.Root openDelay={600} closeDelay={150}>
         
-        {/* 🎯 CHỈ POSTER LÀ TRIGGER */}
+        {/* CHỈ POSTER LÀ TRIGGER */}
         <HoverCard.Trigger asChild>
           <Link
             className={cx("slide-poster")}
@@ -21,7 +22,7 @@ export default function MovieCard({ movieData, imgDom }) {
           >
             <img
               className={cx("slide-img")}
-              src={imgDom + "/uploads/movies/" + movieData.poster_url}
+              src={imgDom + "/uploads/movies/" + (type === "thumb" || type === "top-10" ? movieData.thumb_url : movieData.poster_url)}
             />
           </Link>
         </HoverCard.Trigger>
@@ -40,13 +41,33 @@ export default function MovieCard({ movieData, imgDom }) {
       </HoverCard.Root>
 
       <div className={cx("slide-name")}>
-        <div className={cx("name")}>
-          <Link to={`/movies/${movieData.slug}`}>{movieData.name}</Link>
-        </div>
-        <div className={cx("origin-name")}>
-          <Link to={`/movies/${movieData.slug}`}>
-            {movieData.origin_name}
+        {type === "top-10" && (
+          <div className={cx("rank")}>
+            {rank}
+          </div>
+        )}
+        {type === "poster-thumb" && (
+          <Link to={`/movies/${movieData.slug}`} className={cx("thumb-url")}>
+            <img
+              className={cx("slide-thumb")}
+              src={imgDom + "/uploads/movies/" + movieData.thumb_url}
+            />
           </Link>
+        )}
+        <div className={cx("name-wrapper")}>
+          <div className={cx("name")}>
+            <Link to={`/movies/${movieData.slug}`}>{movieData.name}</Link>
+          </div>
+          <div className={cx("origin-name")}>
+            <Link to={`/movies/${movieData.slug}`}>
+              {movieData.origin_name}
+            </Link>
+          </div>
+          {type === "top-10" && (
+            <div className={cx("current-ep")}>
+              {movieData.episode_current}
+            </div>
+          )}
         </div>
       </div>
     </div>

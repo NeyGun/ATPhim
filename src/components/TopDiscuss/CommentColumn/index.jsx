@@ -88,6 +88,12 @@ const CommentItem = ({ data }) => {
 }
 
 function CommentColumn() {
+    const options = {method: 'GET', headers: {accept: 'application/json'}};
+
+fetch('https://ophim1.com/v1/api/danh-sach/phim-bo?sort_field=modified.time', options)
+  .then(res => res.json())
+  .then(res => console.log(res))
+  .catch(err => console.error(err));
     return (
         <div className={cx("container")}>
             <Swiper

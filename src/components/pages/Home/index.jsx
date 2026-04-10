@@ -30,7 +30,7 @@ function Home() {
     const [topSlideData, setTopSlideData] = useState(null);
     const [imgDomain, setImgDomain] = useState("");
     useEffect(() => {
-        const url1 = 'https://ophim1.com/v1/api/quoc-gia/han-quoc?limit=12';
+        const url1 = 'https://ophim1.com/v1/api/quoc-gia/han-quoc?limit=12&sort_field=modified.time';
         const options1 = {method: 'GET', headers: {accept: 'application/json'}};
 
         fetch(url1, options1)
@@ -52,7 +52,7 @@ function Home() {
 
     const [test1, setTest1] = useState(null);
     useEffect(() => {
-        const url = 'https://ophim1.com/v1/api/quoc-gia/au-my?limit=12';
+        const url = 'https://ophim1.com/v1/api/quoc-gia/au-my?limit=12&sort_field=modified.time';
         const options = {method: 'GET', headers: {accept: 'application/json'}};
 
         fetch(url, options)
@@ -63,7 +63,7 @@ function Home() {
     
     const [test2, setTest2] = useState(null);
     useEffect(() => {
-        const url = 'https://ophim1.com/v1/api/quoc-gia/trung-quoc?limit=12';
+        const url = 'https://ophim1.com/v1/api/quoc-gia/trung-quoc?limit=12&sort_field=modified.time';
         const options = {method: 'GET', headers: {accept: 'application/json'}};
 
         fetch(url, options)
@@ -101,6 +101,18 @@ function Home() {
                     {test2 && <MovieSlide data={test2}/>}
                 </div>
                 <TopDiscuss />
+                <div className={cx("center-container")}>
+                    {test2 && <MovieSlide data={test2} type={"poster-thumb"}/>}
+                </div>
+                <div className={cx("center-container")}>
+                    {test2 && <MovieSlide data={test2} type={"poster"}/>}
+                </div>
+                <div className={cx("center-container")}>
+                    {test2 && <MovieSlide data={test2} type={"top-10"}/>}
+                </div>
+                <div className={cx("center-container")}>
+                    {test2 && <MovieSlide data={test2} type={"thumb"}/>}
+                </div>
             </div>
         </div>
     );
