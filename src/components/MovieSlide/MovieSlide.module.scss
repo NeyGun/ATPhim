@@ -29,10 +29,11 @@
 }
 
 .title-text {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 700;
     background-clip: text !important;
     color: transparent!important;
+    background-color: #fff;
 }
 
 .title-info {
@@ -45,6 +46,10 @@
     background-color: var(--background-color);
     border: 1px solid var(--text-base);
     transition: all .3s ease 0s;
+}
+
+.top-10 .title-info {
+    display: none!important;
 }
 
 .title-info > a{

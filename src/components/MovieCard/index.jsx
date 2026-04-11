@@ -8,7 +8,6 @@ import styles from "./MovieCard.module.scss";
 const cx = classNames.bind(styles);
 
 export default function MovieCard({ movieData, imgDom, type, rank }) {
-  console.log(movieData);
   
   return (
     <div className={cx("slide-card", type)}>

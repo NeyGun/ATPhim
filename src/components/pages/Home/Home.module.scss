@@ -8,6 +8,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
+    margin-bottom: 40px;
 }
 
 .topic-header {
@@ -111,5 +112,90 @@
 }
 
 .center-container {
-    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.skeleton-top-slide {
+    height: 1000px;
+    background: #222;
+}
+
+.skeleton {
+  height: 250px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  background: linear-gradient(
+    90deg,
+    #222 25%,
+    #333 50%,
+    #222 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.slide-title {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    flex-shrink: 0;
+    align-self: flex-start;
+    padding-bottom: 1.2rem;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.title-text {
+    font-size: 1.6rem;
+    font-weight: 700;
+    background-clip: text !important;
+    color: transparent!important;
+    background-color: #fff;
+}
+
+.title-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    background-color: var(--background-color);
+    border: 1px solid var(--text-base);
+    transition: all .3s ease 0s;
+}
+
+.title-info > a{
+    display: flex;
+    font-size: .9rem;
+    fill: #fff;
+    span {
+        display: none;
+        margin-right: .3rem;
+    }
+}
+
+.title-info > a:hover svg{
+    fill: var(--primary-text);
+}
+
+.title-info > a > svg{
+    width: .8rem;
+}
+
+.title-info:hover {
+    width: fit-content;
+    padding: 0 .8rem;
+    span {
+        display: block;
+    }
 }

@@ -17,7 +17,7 @@ import styles from "./TopSlide.module.scss";
 
 const cx = classNames.bind(styles);
 
-function TopSlide({ topSlideData, imgDomain }) {
+function TopSlide({ topSlideData, imgDomain, type }) {
     const swiperRef = useRef();
     const [active, setActive] = useState(0);
 
@@ -37,9 +37,9 @@ function TopSlide({ topSlideData, imgDomain }) {
             img.onerror = null;
         }
     };
-
+    
     return (
-        <div className={cx("container")}>
+        <div className={cx("container", type)}>
             <Swiper
                 spaceBetween={30}
                 effect="fade"
@@ -149,10 +149,8 @@ function TopSlide({ topSlideData, imgDomain }) {
                     onClick={() => swiperRef.current.slideToLoop(i)}
                     >
                         <img
-                            src={
-                                imgDomain +
-                                "/uploads/movies/" +
-                                item.thumb_url.replace("thumb", "poster")
+                            src={type === "sub" ? (imgDomain + "/uploads/movies/" + item.thumb_url) :
+                                (imgDomain + "/uploads/movies/" + item.thumb_url.replace("thumb", "poster"))
                             }
                             data-step="0"
                             onError={(e) => handleImgError(e, item)}

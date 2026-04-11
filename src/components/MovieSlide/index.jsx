@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import classNames from 'classnames/bind';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
@@ -14,7 +14,6 @@ const cx = classNames.bind(styles);
 
 const handleBreakPoints = (type) => {
   switch (type) {
-    
     case "thumb":
       return {
         0: {
@@ -83,18 +82,19 @@ const handleBreakPoints = (type) => {
   }
 }
 
-export default function MovieSlide ({ data, title = "", type = "default" }) {
+function MovieSlide ({ data, title = "", type = "default", css }) {
   // type = ["default", "thumb", "poster", "poster-thumb", "top-10"]
   const [randomColor, setRandomColor] = useState("");
   const prevButtonRef = useRef(null);
   const nextButtonRef = useRef(null);
   const breakPoints = handleBreakPoints(type);
   useEffect(() => {
-    setRandomColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
-  }, [])
-  
+    if (title === "") {
+      setRandomColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
+    }
+  }, [title])
   return (
-    <div className={cx("slide", type)}>
+    <div className={cx("slide", type)} style={css}>
       <div className={cx("slide-title")}>
         <div className={cx("title-text")}
           style={{
@@ -147,3 +147,5 @@ export default function MovieSlide ({ data, title = "", type = "default" }) {
     </div>
   );
 }
+
+export default memo(MovieSlide); // Chỉ khi nào nội dung của chính nó thay đổi thì mới re-render để tránh khi load cái slide khác trong Home Page nó bị ảnh hưởng và re-render
