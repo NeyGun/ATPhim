@@ -53,7 +53,7 @@ function Header() {
             </label>
 
             <Link to="/" className={cx("logo")}>
-                <img src="/ATPhim/logo.svg" alt="ATPhim"/>
+                <img src="/ATPhim/logo.png" alt="ATPhim"/>
             </Link>
         </div>
 
